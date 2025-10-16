@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile optimizations */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Improve touch targets on mobile */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input focus on iOS */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px;
+    }
+  }
+}
+
+/* Manual scroll containers */
+.scroll-container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-content {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+/* Smooth scroll behavior */
+.scroll-container {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading skeleton for images */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
